@@ -1,13 +1,26 @@
 / {
     aliases {
-        push-button = &button1;
+        push-button1 = &button1;
+        push-button2 = &button2;
+        yellow-led = &led0;
     };
     
     buttons {
         compatible = "gpio-keys";
-        button1: button_1{
-            gpios = <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // Replace with actual GPIO number
+        button1: pin18{
+            gpios = <&gpio0 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // Replace with actual GPIO number
             label = "Button 1";
+        };
+        button2: pin46{
+            gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // Replace with actual GPIO number
+            label = "Button 2";
+        };
+    };
+            
+    leds {
+        compatible = "gpio-leds";
+        led0: d13 {
+            gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
         };
     };
 };
