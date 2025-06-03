@@ -1,25 +1,40 @@
 / {
     aliases {
-        push-button1 = &button1;
-        push-button2 = &button2;
+        push-button1= &button_1;
+        push-button2 = &button_2;
         yellow-led = &led0;
     };
-    
-    buttons {
-        compatible = "gpio-keys";
-        button1: pin18{
-            gpios = <&gpio0 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // Replace with actual GPIO number
-            label = "Button 1";
+
+    custom-buttons {
+        button_1: custom_button_1 {
+            compatible = "custom,button";
+            pin = <&d18>;
         };
-        button2: pin46{
-            gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // Replace with actual GPIO number
-            label = "Button 2";
+
+        button_2: custom_button_2 {
+            compatible = "custom,button";
+            pin = <&d5>;
         };
     };
-            
+
+    gpio-keys {
+        compatible = "gpio-keys";
+        debounce-interval-ms = <50>;
+        polling-mode;
+
+        d18: gpio18 {
+            gpios = <&gpio0 18 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        };
+
+        d5: gpio5 {
+            gpios = <&gpio0 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        };
+    };
+
     leds {
         compatible = "gpio-leds";
-        led0: d13 {
+
+        led0: yellow_led {
             gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
         };
     };

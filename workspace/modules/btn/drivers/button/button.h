@@ -15,4 +15,3 @@ struct button_config {
 };
 
 #endif /* ZEPHYR_DRIVERS_BUTTON_H_ */
-

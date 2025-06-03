@@ -5,8 +5,7 @@ description: Custom button
 # DT_DRV_COMPAT macro in the driver source code
 compatible: "custom,button"
 
-# Define the required properties for the device
-
+# Define the required node properties
 properties:
   pin:
     type: phandle

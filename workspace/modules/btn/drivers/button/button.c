@@ -106,4 +106,3 @@ static const struct button_api button_api_funcs = {
 // The Devicetree build process calls this to create an instance of structs for
 // each device (button) defined in the Devicetree
 DT_INST_FOREACH_STATUS_OKAY(BUTTON_DEFINE)
-
